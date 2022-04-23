@@ -9,10 +9,11 @@ public class Car {
     private static final int MAX_NO = 9;
 
     private final CarName name;
-    private int moveCount;
+    private final CarMoveCount moveCount;
 
     public Car(String name) {
         this.name = new CarName(name);
+        this.moveCount = new CarMoveCount();
     }
 
     public void moveForward(int no) {
@@ -21,12 +22,12 @@ public class Car {
         }
 
         if (isMovable(no)) {
-            this.moveCount++;
+            this.moveCount.increase();
         }
     }
 
     public int getMoveCount() {
-        return moveCount;
+        return this.moveCount.value();
     }
 
     private boolean isInvalidNo(int no) {
