@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 public class Cars {
+    private static final String NOT_SAME_SIZE_ERROR_MESSAGE = "[ERROR] 자동차의 수와 입력된 랜덤 값의 수는 같아야 한다.";
+
     private final Set<Car> cars = new LinkedHashSet<>();
 
     public Cars(String names) {
@@ -14,7 +16,9 @@ public class Cars {
     }
 
     public MoveResult moveForward(List<Integer> numbers) {
-        // TODO valid numbers size
+        if (isNotSameSize(numbers)) {
+            throw new IllegalArgumentException(NOT_SAME_SIZE_ERROR_MESSAGE);
+        }
 
         MoveResult moveResult = new MoveResult();
 
@@ -25,5 +29,9 @@ public class Cars {
         }
 
         return moveResult;
+    }
+
+    private boolean isNotSameSize(List<Integer> numbers) {
+        return cars.size() != numbers.size();
     }
 }

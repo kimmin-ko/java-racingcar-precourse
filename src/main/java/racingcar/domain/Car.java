@@ -16,7 +16,7 @@ public class Car {
         this.moveCount = new CarMoveCount();
     }
 
-    public void moveForward(int number) {
+    void moveForward(int number) {
         if (isInvalidNumber(number)) {
             throw new IllegalArgumentException(INVALID_NUMBER_ERROR_MESSAGE);
         }
@@ -26,11 +26,11 @@ public class Car {
         }
     }
 
-    public int getMoveCount() {
+    int getMoveCount() {
         return this.moveCount.value();
     }
 
-    public String getName() {
+    String getName() {
         return this.name.value();
     }
 
