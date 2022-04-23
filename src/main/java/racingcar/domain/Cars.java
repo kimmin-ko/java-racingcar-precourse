@@ -6,12 +6,15 @@ import java.util.Set;
 
 public class Cars {
     private static final String NOT_SAME_SIZE_ERROR_MESSAGE = "[ERROR] 자동차의 수와 입력된 랜덤 값의 수는 같아야 한다.";
+    private static final String DUPLICATE_NAME_ERROR_MESSAGE = "[ERROR] 자동차 이름은 중복될 수 없다.";
 
     private final Set<Car> cars = new LinkedHashSet<>();
 
     public Cars(String names) {
         for (String name : names.split(",")) {
-            cars.add(new Car(name));
+            Car car = new Car(name);
+            checkDuplicateCar(car);
+            cars.add(car);
         }
     }
 
@@ -29,6 +32,12 @@ public class Cars {
         }
 
         return moveResult;
+    }
+
+    private void checkDuplicateCar(Car car) {
+        if (cars.contains(car)) {
+            throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
+        }
     }
 
     private boolean isNotSameSize(List<Integer> numbers) {

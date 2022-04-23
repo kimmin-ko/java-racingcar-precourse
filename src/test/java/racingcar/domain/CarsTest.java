@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarsTest {
 
@@ -15,6 +16,16 @@ class CarsTest {
     @BeforeEach
     void setUp() {
         cars = new Cars("pobi,woni,jun");
+    }
+
+    @Test
+    @DisplayName("자동차 이름 중복 실패")
+    void duplicate_name_failed() {
+        String duplicatedNames = "pobi,woni,jun,pobi";
+
+        assertThatThrownBy(() -> new Cars(duplicatedNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("[ERROR] 자동차 이름은 중복될 수 없다.");
     }
 
     @Test
