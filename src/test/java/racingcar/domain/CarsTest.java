@@ -19,8 +19,18 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("레이싱 공동 우승자 얻기")
+    void co_victor() {
+        String result = "pobi,jun";
+
+        cars.moveForward(Arrays.asList(9, 0, 9));
+        Victor victor = cars.getVictor();
+        assertThat(victor.toString()).hasToString(result);
+    }
+
+    @Test
     @DisplayName("레이싱 단독 우승자 얻기")
-    void victor() {
+    void single_victor() {
         String result = "pobi";
 
         cars.moveForward(Arrays.asList(9, 0, 0));

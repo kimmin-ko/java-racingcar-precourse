@@ -35,6 +35,32 @@ public class Cars {
         return moveResult;
     }
 
+    public Victor getVictor() {
+        Victor victor = new Victor();
+        for (Car car : cars) {
+            addVictor(victor, car);
+        }
+        return victor;
+    }
+
+    private void addVictor(Victor victor, Car car) {
+        if (isMaxMoveCount(car.getMoveCount())) {
+            victor.add(car.getName());
+        }
+    }
+
+    private boolean isMaxMoveCount(int moveCount) {
+        return moveCount == getMaxMovCount();
+    }
+
+    private int getMaxMovCount() {
+        int maxMoveCount = Integer.MIN_VALUE;
+        for (Car car : cars) {
+            maxMoveCount = Math.max(maxMoveCount, car.getMoveCount());
+        }
+        return maxMoveCount;
+    }
+
     private void checkDuplicateCar(Car car) {
         if (cars.contains(car)) {
             throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
@@ -43,9 +69,5 @@ public class Cars {
 
     private boolean isNotSameSize(List<Integer> numbers) {
         return cars.size() != numbers.size();
-    }
-
-    public Victor getVictor() {
-        return new Victor();
     }
 }
