@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 public class Car {
+    private static final String INVALID_MOVE_NO_ERROR_MESSAGE = "[ERROR] 자동자 랜덤 값은 0 ~ 9 사이의 숫자여야 한다.";
     private static final int MIN_MOVABLE = 4;
 
     private final String name;
@@ -11,6 +12,10 @@ public class Car {
     }
 
     public void moveForward(int no) {
+        if (no < 0 || no > 9) {
+            throw new IllegalArgumentException(INVALID_MOVE_NO_ERROR_MESSAGE);
+        }
+
         if (isMovable(no)) {
             this.moveCount++;
         }
