@@ -19,6 +19,16 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("레이싱 단독 우승자 얻기")
+    void victor() {
+        String result = "pobi";
+
+        cars.moveForward(Arrays.asList(9, 0, 0));
+        Victor victor = cars.getVictor();
+        assertThat(victor.toString()).hasToString(result);
+    }
+
+    @Test
     @DisplayName("자동차 이름 중복 실패")
     void duplicate_name_failed() {
         String duplicatedNames = "pobi,woni,jun,pobi";

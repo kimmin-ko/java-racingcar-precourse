@@ -11,7 +11,8 @@ public class Cars {
     private final Set<Car> cars = new LinkedHashSet<>();
 
     public Cars(String names) {
-        for (String name : names.split(",")) {
+        String nameRegex = ",";
+        for (String name : names.split(nameRegex)) {
             Car car = new Car(name);
             checkDuplicateCar(car);
             cars.add(car);
@@ -42,5 +43,9 @@ public class Cars {
 
     private boolean isNotSameSize(List<Integer> numbers) {
         return cars.size() != numbers.size();
+    }
+
+    public Victor getVictor() {
+        return new Victor();
     }
 }
