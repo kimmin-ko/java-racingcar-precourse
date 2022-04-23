@@ -3,25 +3,25 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Car {
-    private static final String INVALID_NO_ERROR_MESSAGE = "[ERROR] 자동자 랜덤 값은 0 ~ 9 사이의 숫자여야 한다.";
+    private static final String INVALID_NUMBER_ERROR_MESSAGE = "[ERROR] 자동자 랜덤 값은 0 ~ 9 사이의 숫자여야 한다.";
     private static final int MIN_MOVABLE = 4;
-    private static final int MIN_NO = 0;
-    private static final int MAX_NO = 9;
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 9;
 
     private final CarName name;
     private final CarMoveCount moveCount;
 
-    public Car(String name) {
+    Car(String name) {
         this.name = new CarName(name);
         this.moveCount = new CarMoveCount();
     }
 
-    public void moveForward(int no) {
-        if (isInvalidNo(no)) {
-            throw new IllegalArgumentException(INVALID_NO_ERROR_MESSAGE);
+    public void moveForward(int number) {
+        if (isInvalidNumber(number)) {
+            throw new IllegalArgumentException(INVALID_NUMBER_ERROR_MESSAGE);
         }
 
-        if (isMovable(no)) {
+        if (isMovable(number)) {
             this.moveCount.increase();
         }
     }
@@ -30,12 +30,16 @@ public class Car {
         return this.moveCount.value();
     }
 
-    private boolean isInvalidNo(int no) {
-        return no < MIN_NO || no > MAX_NO;
+    public String getName() {
+        return this.name.value();
     }
 
-    private boolean isMovable(int no) {
-        return no >= MIN_MOVABLE;
+    private boolean isInvalidNumber(int number) {
+        return number < MIN_NUMBER || number > MAX_NUMBER;
+    }
+
+    private boolean isMovable(int number) {
+        return number >= MIN_MOVABLE;
     }
 
     @Override
@@ -52,4 +56,5 @@ public class Car {
     public int hashCode() {
         return name.hashCode();
     }
+
 }
