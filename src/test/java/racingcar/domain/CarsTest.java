@@ -18,6 +18,18 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("pobi와 jun 전진, woni와 jun 전진")
+    void move_pobi_and_jun_move_woni_jun() {
+        String result = "pobi : -" + "\n" +
+                "woni : -" + "\n" +
+                "jun : --" + "\n";
+
+        cars.moveForward(Arrays.asList(9, 0, 9));
+        MoveResult moveResult = cars.moveForward(Arrays.asList(0, 9, 9));
+        assertThat(moveResult.toString()).hasToString(result);
+    }
+
+    @Test
     @DisplayName("pobi와 jun 전진")
     void move_pobi_and_jun() {
         String result = "pobi : -" + "\n" +
