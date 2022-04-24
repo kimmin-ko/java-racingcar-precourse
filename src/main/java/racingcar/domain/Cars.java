@@ -35,21 +35,21 @@ public class Cars {
         return moveResult;
     }
 
-    public Victor getVictor() {
-        Victor victor = new Victor();
+    public Victors getVictors() {
+        Victors victors = new Victors();
         for (Car car : cars) {
-            addVictor(victor, car);
+            addVictors(victors, car);
         }
-        return victor;
+        return victors;
     }
 
     public int size() {
         return cars.size();
     }
 
-    private void addVictor(Victor victor, Car car) {
+    private void addVictors(Victors victors, Car car) {
         if (isMaxMoveCount(car.getMoveCount())) {
-            victor.add(car.getName());
+            victors.add(car.getName());
         }
     }
 
@@ -70,6 +70,7 @@ public class Cars {
             throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
         }
     }
+
     private boolean isNotSameSize(List<Integer> numbers) {
         return cars.size() != numbers.size();
     }

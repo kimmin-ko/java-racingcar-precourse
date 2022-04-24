@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.MoveResult;
-import racingcar.domain.Victor;
+import racingcar.domain.Victors;
 
 public interface View {
     String requestInputCarNames();
@@ -10,7 +10,7 @@ public interface View {
 
     void outputMoveResult(MoveResult moveResult);
 
-    void outputVictor(Victor victor);
+    void outputVictors(Victors victors);
 
     void errorMessage(Exception e);
 

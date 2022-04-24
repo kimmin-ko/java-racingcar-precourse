@@ -5,7 +5,6 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.MoveResult;
 import racingcar.view.View;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class RacingController {
             view.outputMoveResult(moveResult);
         }
 
-        view.outputVictor(cars.getVictor());
+        view.outputVictors(cars.getVictors());
     }
 
     private int getRacingCountFromUser() {

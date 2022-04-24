@@ -3,7 +3,7 @@ package racingcar.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Victor {
+public class Victors {
 
     private final List<String> victors = new ArrayList<>();
 

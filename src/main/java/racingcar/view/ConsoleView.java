@@ -2,7 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.MoveResult;
-import racingcar.domain.Victor;
+import racingcar.domain.Victors;
 
 public class ConsoleView implements View {
     private static final String REQUEST_INPUT_CAR_NAME_MESSAGE = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
@@ -39,8 +39,8 @@ public class ConsoleView implements View {
     }
 
     @Override
-    public void outputVictor(Victor victor) {
-        System.out.println(VICTOR_GUIDE_MESSAGE + victor);
+    public void outputVictors(Victors victors) {
+        System.out.println(VICTOR_GUIDE_MESSAGE + victors);
     }
 
     @Override

@@ -24,8 +24,8 @@ class CarsTest {
         String result = "pobi,jun";
 
         cars.moveForward(Arrays.asList(9, 0, 9));
-        Victor victor = cars.getVictor();
-        assertThat(victor.toString()).hasToString(result);
+        Victors victors = cars.getVictors();
+        assertThat(victors.toString()).hasToString(result);
     }
 
     @Test
@@ -34,8 +34,8 @@ class CarsTest {
         String result = "pobi";
 
         cars.moveForward(Arrays.asList(9, 0, 0));
-        Victor victor = cars.getVictor();
-        assertThat(victor.toString()).hasToString(result);
+        Victors victors = cars.getVictors();
+        assertThat(victors.toString()).hasToString(result);
     }
 
     @Test
