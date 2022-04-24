@@ -43,6 +43,10 @@ public class Cars {
         return victor;
     }
 
+    public int size() {
+        return cars.size();
+    }
+
     private void addVictor(Victor victor, Car car) {
         if (isMaxMoveCount(car.getMoveCount())) {
             victor.add(car.getName());
@@ -66,7 +70,6 @@ public class Cars {
             throw new IllegalArgumentException(DUPLICATE_NAME_ERROR_MESSAGE);
         }
     }
-
     private boolean isNotSameSize(List<Integer> numbers) {
         return cars.size() != numbers.size();
     }

@@ -3,10 +3,10 @@ package racingcar.domain;
 import java.util.Objects;
 
 public class Car {
+    public static final int MIN_NUMBER = 0;
+    public static final int MAX_NUMBER = 9;
     private static final String INVALID_NUMBER_ERROR_MESSAGE = "[ERROR] 자동자 랜덤 값은 0 ~ 9 사이의 숫자여야 한다.";
     private static final int MIN_MOVABLE = 4;
-    private static final int MIN_NUMBER = 0;
-    private static final int MAX_NUMBER = 9;
 
     private final CarName name;
     private final CarMoveCount moveCount;

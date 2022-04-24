@@ -7,7 +7,7 @@ public class Victor {
 
     private final List<String> victors = new ArrayList<>();
 
-    public void add(String name) {
+    void add(String name) {
         victors.add(name);
     }
 
