@@ -33,12 +33,6 @@ public class ConsoleView implements View {
         }
     }
 
-    private void validateRacingCount(int inputRacingCount) {
-        if (inputRacingCount < MIN_RACING_COUNT) {
-            throw new IllegalArgumentException(RACING_COUNT_NEGATIVE_ERROR_MESSAGE);
-        }
-    }
-
     @Override
     public void outputMoveResult(MoveResult moveResult) {
         System.out.println(moveResult);
@@ -57,5 +51,11 @@ public class ConsoleView implements View {
     @Override
     public void outputExecutionResultGuide() {
         System.out.println(EXECUTION_RESULT_GUIDE_MESSAGE);
+    }
+
+    private void validateRacingCount(int inputRacingCount) {
+        if (inputRacingCount < MIN_RACING_COUNT) {
+            throw new IllegalArgumentException(RACING_COUNT_NEGATIVE_ERROR_MESSAGE);
+        }
     }
 }

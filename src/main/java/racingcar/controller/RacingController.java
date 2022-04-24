@@ -18,10 +18,9 @@ public class RacingController {
     }
 
     public void start() {
-        String names = view.requestInputCarNames();
-        Cars cars = new Cars(names);
+        Cars cars = createCarsFromUser();
 
-        int racingCount = view.requestInputRacingCount();
+        int racingCount = getRacingCountFromUser();
         view.outputExecutionResultGuide();
         for (int i = 0; i < racingCount; i++) {
             List<Integer> numbers = generateRandomMoveNumber(cars.size());
@@ -30,6 +29,25 @@ public class RacingController {
         }
 
         view.outputVictor(cars.getVictor());
+    }
+
+    private int getRacingCountFromUser() {
+        try {
+            return view.requestInputRacingCount();
+        } catch (IllegalArgumentException e) {
+            view.errorMessage(e);
+            return getRacingCountFromUser();
+        }
+    }
+
+    private Cars createCarsFromUser() {
+        try {
+            String names = view.requestInputCarNames();
+            return new Cars(names);
+        } catch (IllegalArgumentException e) {
+            view.errorMessage(e);
+            return createCarsFromUser();
+        }
     }
 
     private List<Integer> generateRandomMoveNumber(int participatedCarCount) {
